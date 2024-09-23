@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Status</th>
+    </thead>
+    <tbody>
+    <tr th:each="task,number : ${tasks}">
+        <td th:text="${task.id}"/>
+        <td th:text="${task.description}" th:id="'description_' + ${task.id}"/>
+        <td span th:text="${task.status}" th:id="'status_' + ${task.id}"/>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
