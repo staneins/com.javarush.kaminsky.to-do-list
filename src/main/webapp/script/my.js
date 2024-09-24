@@ -1,5 +1,5 @@
 function delete_task(task_id) {
-    let url = "/" + task_id;
+    let url = getBaseUrl() + task_id;
     $.ajax({
         url: url,
         type: 'DELETE',
@@ -36,15 +36,15 @@ function edit_task(task_id) {
 function getDropdownStatusHtml(task_id) {
     let status_id = "select_status_" + task_id;
     return "<label for='status'></label>"
-    + "<select id=" + status_id + " name='status'>"
-    + "<option value='IN_PROGRESS'>IN_PROGRESS</option>"
-    + "<option value='DONE'>DONE</option>"
-    + "<option value='PAUSED'>PAUSED</option>"
-    + "</select>";
+        + "<select id=" + status_id + " name='status'>"
+        + "<option value='IN_PROGRESS'>IN_PROGRESS</option>"
+        + "<option value='DONE'>DONE</option>"
+        + "<option value='PAUSED'>PAUSED</option>"
+        + "</select>";
 }
 
 function update_task(task_id) {
-    let url = "/" + task_id;
+    let url = getBaseUrl() + task_id;
 
     let value_description = $("#input_description_" + task_id).val();
     let value_status = $("#select_status_" + task_id).val();
@@ -63,21 +63,27 @@ function update_task(task_id) {
     }, 300);
 }
 
-    function add_task() {
+function add_task() {
 
-        let value_description = $("#description_new").val();
-        let value_status = $("#status_new").val();
+    let value_description = $("#description_new").val();
+    let value_status = $("#status_new").val();
 
-        $.ajax({
-            url: "/",
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json;charset=UTF-8',
-            async: false,
-            data: JSON.stringify({"description": value_description, "status": value_status})
-        });
+    $.ajax({
+        url: getBaseUrl(),
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json;charset=UTF-8',
+        async: false,
+        data: JSON.stringify({"description": value_description, "status": value_status})
+    });
 
-        setTimeout(() => {
-            document.location.reload();
-        }, 300);
+    setTimeout(() => {
+        document.location.reload();
+    }, 300);
+}
+
+function getBaseUrl() {
+    let current_path = window.location.href;
+    let end_position = current_path.indexOf('?');
+    return current_path.substring(0, end_position);
 }
