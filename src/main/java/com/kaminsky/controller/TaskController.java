@@ -25,7 +25,7 @@ public class TaskController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String tasks(Model model,
                             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-                            @RequestParam(value = "page", required = false, defaultValue = "10") int limit) {
+                            @RequestParam(value = "limit", required = false, defaultValue = "10") int limit) {
         List<Task> tasks = taskService.getAll((page - 1) * limit, limit);
         model.addAttribute("tasks", tasks);
         model.addAttribute("current_page", page);
