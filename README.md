@@ -8,5 +8,5 @@ tasks.
 The app can be deployed with the help of docker-compose
 
 STACK:
-Spring framework
-Hibernate
+- Spring framework
+- Hibernate
