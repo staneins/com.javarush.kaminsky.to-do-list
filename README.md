@@ -1,12 +1,18 @@
-A Spring application aimed at
-- creating
-- viewing
-- deleting
-- editing
-tasks.
+# 📝 Task Management Application
 
-The app can be deployed with the help of docker-compose
+A Spring-based application for managing tasks with the ability to **create**, **view**, **edit**, and **delete** tasks. This app can be easily deployed using Docker.
 
-STACK:
-- Spring framework
-- Hibernate
+## 🚀 Features
+
+- **Task Creation**: Easily add new tasks with descriptions and deadlines.
+- **Task Viewing**: View a list of all tasks in a user-friendly interface.
+- **Task Editing**: Modify task details as needed.
+- **Task Deletion**: Remove completed or irrelevant tasks.
+
+## 🛠 Tech Stack
+
+- **Spring Framework**: For building the application’s backend services.
+- **Hibernate**: For ORM (Object-Relational Mapping) to manage database interactions.
+- **Docker & Docker Compose**: For containerized deployment of the application.
+
+
